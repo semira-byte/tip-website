@@ -51,8 +51,9 @@ const TIP_DATA = {
   },
 
   previousEpisodes: [
-    // Add past YouTube video IDs here
-    // { title: "Episode Title", youtubeId: "VIDEO_ID", tag: "Mental Health", season: 2 },
+    { title: "EmotionalLiy; Attachment Styles", youtubeId: "-fE6cG-c4OA", tag: "Lifestyle", season: 2 },
+    { title: "HistoricalLiy; It's in Our Genes", youtubeId: "8nbvJ6JfxJI", tag: "Biology", season: 2 },
+    { title: "FinancialLiy; Self Care or OverSpending? Between Treating Yourself and Staying Financially Healthy", youtubeId: "N8Bljt9PXPs", tag: "Lifestyle", season: 2 },
   ],
 
   resources: [
