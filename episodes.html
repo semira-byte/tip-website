@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Episodes — The Inside Perspective</title>
+  <meta name="description" content="All episodes of The Inside Perspective. Biology, mental health, lifestyle — real talk for dedicated healers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">TiP</a>
+  <div class="nav-links">
+    <a href="episodes.html" style="color:#f0f0f0;">Episodes</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+  </div>
+  <a class="nav-cta btn-primary" href="index.html#subscribe">Subscribe</a>
+  <button class="nav-hamburger" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+</nav>
+
+<main>
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">The Inside Perspective</div>
+    <h1>All Episodes</h1>
+    <p>Real talk about your health, your healing, and everything in between. Not from a place of perfection — from a place of growth.</p>
+  </div>
+
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Now loading</div>
+        <h2 class="section-title">Season 3</h2>
+      </div>
+      <div class="s3-badge" style="font-size:10px;font-weight:600;background:rgba(123,47,255,0.1);color:#a66fff;border:0.5px solid rgba(123,47,255,0.25);border-radius:4px;padding:8px 16px;letter-spacing:0.12em;text-transform:uppercase;">Coming Soon</div>
+    </div>
+
+    <div class="s3-banner" style="margin-bottom:32px;">
+      <div class="s3-banner-text">
+        <div class="s3-label">Season Theme</div>
+        <div class="s3-title">"I'm Learning to Take Care of Myself."</div>
+        <div class="s3-theme">5 episodes. Biology · Mental Health · Lifestyle.</div>
+      </div>
+    </div>
+
+    <div class="episodes-grid" id="s3-episodes"></div>
+  </section>
+
+  <section class="section" id="previous-section" style="display:none;">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">The archive</div>
+        <h2 class="section-title">Previous seasons</h2>
+      </div>
+    </div>
+    <div class="episodes-grid" id="prev-episodes"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-logo">The Inside Perspective · insideperspective.org</div>
+  <div class="footer-links">
+    <a href="episodes.html">Episodes</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    <a href="https://www.youtube.com/@theinsideperspective" target="_blank" rel="noopener">YouTube</a>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close"><i class="ti ti-x"></i></button>
+    <div class="modal-video" id="modal-video"></div>
+    <div class="modal-body">
+      <div class="modal-tag" id="modal-tag"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+  function tagIcon(tag) {
+    if (tag === 'Biology') return 'ti-dna';
+    if (tag === 'Mental Health') return 'ti-brain';
+    return 'ti-flame';
+  }
+
+  function openModal(ep) {
+    document.getElementById('modal-tag').innerHTML = `<i class="ti ${tagIcon(ep.tag)}" style="font-size:10px;margin-right:4px;"></i>${ep.tag}`;
+    document.getElementById('modal-title').textContent = ep.title;
+    document.getElementById('modal-desc').textContent = ep.description;
+
+    const videoEl = document.getElementById('modal-video');
+    if (ep.youtubeId) {
+      videoEl.innerHTML = `<iframe src="https://www.youtube.com/embed/${ep.youtubeId}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+    } else {
+      videoEl.innerHTML = `
+        <div class="modal-coming">
+          <div class="modal-coming-label">Coming soon</div>
+          <div class="modal-coming-title">Ep. ${String(ep.number).padStart(2,'0')} — ${ep.title}</div>
+        </div>`;
+    }
+
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e && e.target !== document.getElementById('modal')) return;
+    document.getElementById('modal').classList.remove('open');
+    document.getElementById('modal-video').innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  function renderS3() {
+    const container = document.getElementById('s3-episodes');
+    container.innerHTML = TIP_DATA.season3.episodes.map(ep => `
+      <div class="ep-card ${ep.youtubeId ? '' : 'ep-coming'}" onclick='openModal(${JSON.stringify(ep)})'>
+        <div class="ep-thumb">
+          <div class="ep-thumb-inner"></div>
+          <svg class="ep-thumb-hex" width="90" height="104" viewBox="0 0 90 104" fill="none">
+            <polygon points="45,2 88,26 88,78 45,102 2,78 2,26" stroke="#7B2FFF" stroke-width="1" fill="none"/>
+          </svg>
+          <span class="ep-num">Ep. ${String(ep.number).padStart(2,'0')}</span>
+          <div class="ep-play">
+            <i class="ti ${ep.youtubeId ? 'ti-player-play' : 'ti-clock'}" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-tag"><i class="ti ${tagIcon(ep.tag)}" style="font-size:10px;margin-right:4px;" aria-hidden="true"></i>${ep.tag}</div>
+          <div class="ep-title">${ep.title}</div>
+          <div class="ep-desc">${ep.description}</div>
+          <div class="ep-meta">
+            <span class="ep-status ${ep.youtubeId ? 'live' : 'soon'}">${ep.youtubeId ? 'Watch now' : 'Coming soon'}</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderPrevious() {
+    const prev = TIP_DATA.previousEpisodes;
+    if (!prev.length) return;
+    document.getElementById('previous-section').style.display = 'block';
+    const container = document.getElementById('prev-episodes');
+    container.innerHTML = prev.map(ep => `
+      <div class="ep-card" onclick='openModal(${JSON.stringify(ep)})'>
+        <div class="ep-thumb">
+          <div class="ep-thumb-inner"></div>
+          <div class="ep-play"><i class="ti ti-player-play" aria-hidden="true"></i></div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-tag">${ep.tag}</div>
+          <div class="ep-title">${ep.title}</div>
+          <div class="ep-meta"><span class="ep-status live">Watch now</span></div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  renderS3();
+  renderPrevious();
+</script>
+</body>
+</html>

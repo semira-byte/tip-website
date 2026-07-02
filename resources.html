@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — The Inside Perspective</title>
+  <meta name="description" content="Books, research papers, and websites curated for dedicated healers by The Inside Perspective." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">TiP</a>
+  <div class="nav-links">
+    <a href="episodes.html">Episodes</a>
+    <a href="resources.html" style="color:#f0f0f0;">Resources</a>
+    <a href="about.html">About</a>
+  </div>
+  <a class="nav-cta btn-primary" href="index.html#subscribe">Subscribe</a>
+  <button class="nav-hamburger" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+</nav>
+
+<main>
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">The Inside Perspective</div>
+    <h1>Resources</h1>
+    <p>Books, research, and tools referenced on the podcast. Everything here is curated — if it's on this page, it means something.</p>
+  </div>
+
+  <section class="section" id="books-section" style="display:none;">
+    <div class="section-eyebrow">Reading list</div>
+    <h2 class="section-title" style="margin-bottom:24px;">Books</h2>
+    <div class="resources-grid" id="books-grid"></div>
+  </section>
+
+  <section class="section" id="research-section" style="display:none;">
+    <div class="section-eyebrow">Referenced on the podcast</div>
+    <h2 class="section-title" style="margin-bottom:24px;">Research papers</h2>
+    <div class="resources-grid" id="research-grid"></div>
+  </section>
+
+  <section class="section" id="websites-section" style="display:none;">
+    <div class="section-eyebrow">Explore further</div>
+    <h2 class="section-title" style="margin-bottom:24px;">Websites & tools</h2>
+    <div class="resources-grid" id="websites-grid"></div>
+  </section>
+
+  <div id="empty-state" style="padding:72px 48px;text-align:center;display:none;">
+    <div style="font-size:32px;margin-bottom:16px;color:#333;"><i class="ti ti-books" aria-hidden="true"></i></div>
+    <div style="font-size:14px;color:#555;">Resources are added with each new episode. Check back when Season 3 drops.</div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">The Inside Perspective · insideperspective.org</div>
+  <div class="footer-links">
+    <a href="episodes.html">Episodes</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    <a href="https://www.youtube.com/@theinsideperspective" target="_blank" rel="noopener">YouTube</a>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+  function typeIcon(type) {
+    if (type === 'Book') return 'ti-book';
+    if (type === 'Research') return 'ti-file-text';
+    return 'ti-world';
+  }
+
+  function renderSection(id, sectionId, items) {
+    if (!items.length) return;
+    document.getElementById(sectionId).style.display = 'block';
+    document.getElementById(id).innerHTML = items.map(r => `
+      <a class="res-card" href="${r.url}" target="_blank" rel="noopener">
+        <div class="res-type"><i class="ti ${typeIcon(r.type)}" style="font-size:11px;margin-right:4px;" aria-hidden="true"></i>${r.type}</div>
+        <div class="res-title">${r.title}</div>
+        ${r.author ? `<div class="res-author">${r.author}</div>` : ''}
+        <div class="res-desc">${r.description}</div>
+        ${r.relatedEpisode ? `<div class="res-ep">Referenced in Ep. ${r.relatedEpisode}</div>` : ''}
+        <div class="res-link" style="margin-top:8px;">View resource →</div>
+      </a>
+    `).join('');
+  }
+
+  const books = TIP_DATA.resources.filter(r => r.type === 'Book');
+  const research = TIP_DATA.resources.filter(r => r.type === 'Research');
+  const websites = TIP_DATA.resources.filter(r => r.type === 'Website');
+
+  renderSection('books-grid', 'books-section', books);
+  renderSection('research-grid', 'research-section', research);
+  renderSection('websites-grid', 'websites-section', websites);
+
+  if (!books.length && !research.length && !websites.length) {
+    document.getElementById('empty-state').style.display = 'block';
+  }
+</script>
+</body>
+</html>
