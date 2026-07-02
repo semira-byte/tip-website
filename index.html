@@ -20,8 +20,14 @@
     <a href="about.html">About</a>
   </div>
   <a class="nav-cta btn-primary" href="episodes.html">Season 3 →</a>
-  <button class="nav-hamburger" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+  <button class="nav-hamburger" aria-label="Menu" onclick="toggleMenu()"><i class="ti ti-menu-2"></i></button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="episodes.html">Episodes</a>
+  <a href="resources.html">Resources</a>
+  <a href="about.html">About</a>
+  <a href="https://www.youtube.com/@theinsideperspective" target="_blank" rel="noopener">YouTube</a>
+</div>
 
 <main>
   <!-- HERO -->
@@ -122,6 +128,11 @@
 </footer>
 
 <script src="data.js"></script>
+<script>
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+</script>
 <script>
   function tagIcon(tag) {
     if (tag === 'Biology') return 'ti-dna';

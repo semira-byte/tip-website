@@ -84,6 +84,28 @@ nav {
 
 .nav-hamburger { display: none; background: none; border: none; color: var(--text-muted); font-size: 20px; cursor: pointer; }
 
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--surface);
+  border-bottom: 0.5px solid var(--card-border);
+  padding: 16px 24px;
+  gap: 16px;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 0;
+  border-bottom: 0.5px solid var(--card-border);
+}
+
+.mobile-menu a:last-child { border-bottom: none; }
+
 /* HERO */
 .hero {
   position: relative;
