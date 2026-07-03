@@ -132,8 +132,8 @@
 
   function renderS3() {
     const container = document.getElementById('s3-episodes');
-    container.innerHTML = TIP_DATA.season3.episodes.map(ep => `
-      <div class="ep-card ${ep.youtubeId ? '' : 'ep-coming'}" onclick='openModal(${JSON.stringify(ep)})'>
+    container.innerHTML = TIP_DATA.season3.episodes.map((ep, i) => `
+      <div class="ep-card ${ep.youtubeId ? '' : 'ep-coming'}" data-index="${i}">
         <div class="ep-thumb">
           <div class="ep-thumb-inner"></div>
           <svg class="ep-thumb-hex" width="90" height="104" viewBox="0 0 90 104" fill="none">
@@ -154,6 +154,9 @@
         </div>
       </div>
     `).join('');
+    container.querySelectorAll('.ep-card').forEach(card => {
+      card.addEventListener('click', () => openModal(TIP_DATA.season3.episodes[Number(card.dataset.index)]));
+    });
   }
 
   function renderPrevious() {
@@ -161,8 +164,8 @@
     if (!prev.length) return;
     document.getElementById('previous-section').style.display = 'block';
     const container = document.getElementById('prev-episodes');
-    container.innerHTML = prev.map(ep => `
-      <div class="ep-card" onclick='openModal(${JSON.stringify(ep)})'>
+    container.innerHTML = prev.map((ep, i) => `
+      <div class="ep-card" data-index="${i}">
         <div class="ep-thumb">
           <div class="ep-thumb-inner"></div>
           <div class="ep-play"><i class="ti ti-player-play" aria-hidden="true"></i></div>
@@ -174,6 +177,9 @@
         </div>
       </div>
     `).join('');
+    container.querySelectorAll('.ep-card').forEach(card => {
+      card.addEventListener('click', () => openModal(prev[Number(card.dataset.index)]));
+    });
   }
 
   renderS3();
