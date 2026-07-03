@@ -4,7 +4,7 @@ const TIP_DATA = {
     episodes: [
       {
         number: 1,
-        title: "Stress and the Nervous System",
+        title: "NervousLiy; Stress and the Nervous System",
         description: "What stress is actually doing to your body and organs. The entry point — because everyone's been here.",
         tag: "Biology",
         status: "coming-soon",
@@ -13,7 +13,7 @@ const TIP_DATA = {
       },
       {
         number: 2,
-        title: "Anxiety and Depression",
+        title: "MentalLiy; Anxiety and Depression",
         description: "Lived experience, no filter. What it feels like day to day and what actually helps.",
         tag: "Mental Health",
         status: "coming-soon",
@@ -22,7 +22,7 @@ const TIP_DATA = {
       },
       {
         number: 3,
-        title: "The Period Cycle",
+        title: "CyclicaLiy; The Period Cycle",
         description: "Educational and empowering. Working with your cycle, not against it.",
         tag: "Biology",
         status: "coming-soon",
@@ -31,7 +31,7 @@ const TIP_DATA = {
       },
       {
         number: 4,
-        title: "Finding Self Confidence",
+        title: "ConfidentLiy; Finding Self Confidence",
         description: "The messy process of building it — after the inner work has already started.",
         tag: "Lifestyle",
         status: "coming-soon",
@@ -40,7 +40,7 @@ const TIP_DATA = {
       },
       {
         number: 5,
-        title: "Working Out",
+        title: "PhysicaLiy; Working Out",
         description: "Movement as self care. Ends the season on something actionable and energizing.",
         tag: "Lifestyle",
         status: "coming-soon",
