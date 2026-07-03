@@ -91,6 +91,22 @@ const TIP_DATA = {
     },
     {
       type: "Book",
+      title: "All About Love",
+      author: "bell hooks",
+      description: "New visions for what love actually requires — care, commitment, and accountability, not just feeling.",
+      url: "https://www.harpercollins.ca/9780060959470/all-about-love/",
+      relatedEpisode: null,
+    },
+    {
+      type: "Book",
+      title: "What Happened to You?",
+      author: "Oprah Winfrey & Dr. Bruce Perry",
+      description: "Conversations on trauma, resilience, and healing — reframing 'what's wrong with you' as 'what happened to you.'",
+      url: "https://us.macmillan.com/books/9781250223210/whathappenedtoyou/",
+      relatedEpisode: null,
+    },
+    {
+      type: "Book",
       title: "Rest Is Resistance",
       author: "Tricia Hersey",
       description: "The Nap Ministry founder's manifesto on rest as reclamation — not a reward you earn after burning out.",
