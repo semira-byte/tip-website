@@ -138,7 +138,7 @@ nav {
   position: relative;
   z-index: 1;
   flex: 0 0 auto;
-  width: min(520px, 40vw);
+  width: min(640px, 48vw);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,7 +147,7 @@ nav {
 .hero-visual-img {
   position: relative;
   width: auto;
-  height: min(560px, 62vh);
+  height: min(680px, 76vh);
   max-width: 100%;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
 }
