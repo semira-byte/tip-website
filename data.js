@@ -67,6 +67,14 @@ const TIP_DATA = {
     },
     {
       type: "Book",
+      title: "From Fibroids to Freedom",
+      author: "Tanika Gray Valbrun",
+      description: "The White Dress Project founder on fibroids, heavy and painful periods, and reclaiming your cycle.",
+      url: "https://www.sheldonpress.co.uk/titles/tanika-gray-valbrun/from-fibroids-to-freedom/9781399817301/",
+      relatedEpisode: 3,
+    },
+    {
+      type: "Book",
       title: "The Unapologetic Guide to Black Mental Health",
       author: "Dr. Rheeda Walker",
       description: "Navigating an unequal system, spotting the signs, and building real tools for emotional wellness.",
@@ -95,14 +103,6 @@ const TIP_DATA = {
       author: "Bessel van der Kolk",
       description: "How trauma reshapes the body and brain.",
       url: "https://www.besselvanderkolk.com/resources/the-body-keeps-the-score",
-      relatedEpisode: null,
-    },
-    {
-      type: "Book",
-      title: "Why Has Nobody Told Me This Before?",
-      author: "Dr. Julie Smith",
-      description: "Essential tools for life's difficult moments.",
-      url: "https://www.drjuliesmith.com/book",
       relatedEpisode: null,
     },
     {
