@@ -59,6 +59,38 @@ const TIP_DATA = {
   resources: [
     {
       type: "Book",
+      title: "My Grandmother's Hands",
+      author: "Resmaa Menakem",
+      description: "Racialized trauma and the pathway to mending our hearts and bodies — trauma healing that lives in the body, not just the mind.",
+      url: "https://resmaa.com/about-resmaa-menakem/",
+      relatedEpisode: 1,
+    },
+    {
+      type: "Book",
+      title: "The Unapologetic Guide to Black Mental Health",
+      author: "Dr. Rheeda Walker",
+      description: "Navigating an unequal system, spotting the signs, and building real tools for emotional wellness.",
+      url: "https://www.newharbinger.com/9781684034147/the-unapologetic-guide-to-black-mental-health/",
+      relatedEpisode: 2,
+    },
+    {
+      type: "Book",
+      title: "Sisters of the Yam",
+      author: "bell hooks",
+      description: "Black women and self-recovery — how self-care and collective healing are also political acts.",
+      url: "https://www.routledge.com/Sisters-of-the-Yam-Black-Women-and-Self-Recovery/hooks/p/book/9781138821682",
+      relatedEpisode: 4,
+    },
+    {
+      type: "Book",
+      title: "Rest Is Resistance",
+      author: "Tricia Hersey",
+      description: "The Nap Ministry founder's manifesto on rest as reclamation — not a reward you earn after burning out.",
+      url: "https://www.hachettebookgroup.com/titles/tricia-hersey/rest-is-resistance/9780316365536/",
+      relatedEpisode: 5,
+    },
+    {
+      type: "Book",
       title: "The Body Keeps the Score",
       author: "Bessel van der Kolk",
       description: "How trauma reshapes the body and brain.",
