@@ -33,8 +33,14 @@
   <div class="page-hero">
     <div class="page-hero-eyebrow">The Inside Perspective</div>
     <h1>Resources</h1>
-    <p>Books, research, and tools referenced on the podcast. Everything here is curated — if it's on this page, it means something.</p>
+    <p>Books, research, and tools referenced on the podcast. Everything here is curated: if it's on this page, it means something.</p>
   </div>
+
+  <section class="section" id="guides-section" style="display:none;">
+    <div class="section-eyebrow">From the show</div>
+    <h2 class="section-title" style="margin-bottom:24px;">Guides</h2>
+    <div class="resources-grid" id="guides-grid"></div>
+  </section>
 
   <section class="section" id="books-section" style="display:none;">
     <div class="section-eyebrow">Reading list</div>
@@ -59,6 +65,14 @@
     <div style="font-size:14px;color:#555;">Resources are added with each new episode. Check back when Season 3 drops.</div>
   </div>
 </main>
+
+<!-- GUIDE MODAL -->
+<div class="modal-overlay" id="guide-modal" onclick="closeGuideModal(event)">
+  <div class="modal modal--guide" style="position:relative;">
+    <button class="modal-close" onclick="closeGuideModal()" aria-label="Close"><i class="ti ti-x"></i></button>
+    <div class="modal-body modal-body--guide" id="guide-modal-body"></div>
+  </div>
+</div>
 
 <footer>
   <div class="footer-logo">The Inside Perspective · insideperspective.org</div>
@@ -101,12 +115,51 @@
   const books = TIP_DATA.resources.filter(r => r.type === 'Book');
   const research = TIP_DATA.resources.filter(r => r.type === 'Research');
   const websites = TIP_DATA.resources.filter(r => r.type === 'Website');
+  const guides = TIP_DATA.guides || [];
 
+  function renderGuides() {
+    if (!guides.length) return;
+    document.getElementById('guides-section').style.display = 'block';
+    document.getElementById('guides-grid').innerHTML = guides.map(g => `
+      <div class="res-card" onclick="openGuideModal('${g.id}')">
+        <div class="res-type"><i class="ti ti-compass" style="font-size:11px;margin-right:4px;" aria-hidden="true"></i>Guide</div>
+        <div class="res-title">${g.title}</div>
+        <div class="res-desc">${g.description}</div>
+        ${g.relatedEpisode ? `<div class="res-ep">Referenced in Ep. ${g.relatedEpisode}</div>` : ''}
+        <div class="res-link" style="margin-top:8px;">Read the guide →</div>
+      </div>
+    `).join('');
+  }
+
+  function openGuideModal(id) {
+    const guide = guides.find(g => g.id === id);
+    if (!guide) return;
+    document.getElementById('guide-modal-body').innerHTML = `
+      <div class="modal-tag">${guide.tag}</div>
+      <div class="modal-title" style="margin-bottom:20px;">${guide.title}</div>
+      ${guide.sections.map(s => `
+        <div class="guide-section">
+          <div class="guide-section-heading">${s.heading}</div>
+          <div class="guide-section-body">${s.body}</div>
+        </div>
+      `).join('')}
+    `;
+    document.getElementById('guide-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGuideModal(e) {
+    if (e && e.target !== document.getElementById('guide-modal')) return;
+    document.getElementById('guide-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  renderGuides();
   renderSection('books-grid', 'books-section', books);
   renderSection('research-grid', 'research-section', research);
   renderSection('websites-grid', 'websites-section', websites);
 
-  if (!books.length && !research.length && !websites.length) {
+  if (!books.length && !research.length && !websites.length && !guides.length) {
     document.getElementById('empty-state').style.display = 'block';
   }
 </script>

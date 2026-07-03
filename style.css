@@ -660,6 +660,24 @@ footer {
 .modal-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
 .modal-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
 
+.modal--guide {
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body--guide {
+  overflow-y: auto;
+}
+
+.guide-section { margin-bottom: 20px; }
+.guide-section:last-child { margin-bottom: 0; }
+.guide-section-heading { font-size: 13px; font-weight: 700; color: var(--purple-light); margin-bottom: 6px; }
+.guide-section-body { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
+.guide-section-body ul { padding-left: 18px; margin-top: 8px; }
+.guide-section-body li { margin-bottom: 6px; }
+.guide-section-body em { color: #bbb; font-style: italic; }
+
 .modal-close {
   position: absolute;
   top: 16px;

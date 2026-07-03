@@ -5,7 +5,7 @@ const TIP_DATA = {
       {
         number: 1,
         title: "NervousLiy; Stress and the Nervous System",
-        description: "What stress is actually doing to your body and organs. The entry point — because everyone's been here.",
+        description: "What stress is actually doing to your body and organs. The entry point, because everyone's been here.",
         tag: "Biology",
         status: "coming-soon",
         youtubeId: null,
@@ -32,7 +32,7 @@ const TIP_DATA = {
       {
         number: 4,
         title: "ConfidentLiy; Finding Self Confidence",
-        description: "The messy process of building it — after the inner work has already started.",
+        description: "The messy process of building it, after the inner work has already started.",
         tag: "Lifestyle",
         status: "coming-soon",
         youtubeId: null,
@@ -61,7 +61,7 @@ const TIP_DATA = {
       type: "Book",
       title: "My Grandmother's Hands",
       author: "Resmaa Menakem",
-      description: "Racialized trauma and the pathway to mending our hearts and bodies — trauma healing that lives in the body, not just the mind.",
+      description: "Racialized trauma and the pathway to mending our hearts and bodies: trauma healing that lives in the body, not just the mind.",
       url: "https://resmaa.com/about-resmaa-menakem/",
       relatedEpisode: 1,
     },
@@ -85,7 +85,7 @@ const TIP_DATA = {
       type: "Book",
       title: "Sisters of the Yam",
       author: "bell hooks",
-      description: "Black women and self-recovery — how self-care and collective healing are also political acts.",
+      description: "Black women and self-recovery: how self-care and collective healing are also political acts.",
       url: "https://www.routledge.com/Sisters-of-the-Yam-Black-Women-and-Self-Recovery/hooks/p/book/9781138821682",
       relatedEpisode: 4,
     },
@@ -93,7 +93,7 @@ const TIP_DATA = {
       type: "Book",
       title: "All About Love",
       author: "bell hooks",
-      description: "New visions for what love actually requires — care, commitment, and accountability, not just feeling.",
+      description: "New visions for what love actually requires: care, commitment, and accountability, not just feeling.",
       url: "https://www.harpercollins.ca/9780060959470/all-about-love/",
       relatedEpisode: null,
     },
@@ -101,7 +101,7 @@ const TIP_DATA = {
       type: "Book",
       title: "What Happened to You?",
       author: "Oprah Winfrey & Dr. Bruce Perry",
-      description: "Conversations on trauma, resilience, and healing — reframing 'what's wrong with you' as 'what happened to you.'",
+      description: "Conversations on trauma, resilience, and healing, reframing 'what's wrong with you' as 'what happened to you.'",
       url: "https://www.panmacmillan.com/authors/oprah-winfrey/what-happened-to-you/9781529068467",
       relatedEpisode: null,
     },
@@ -109,7 +109,7 @@ const TIP_DATA = {
       type: "Book",
       title: "Rest Is Resistance",
       author: "Tricia Hersey",
-      description: "The Nap Ministry founder's manifesto on rest as reclamation — not a reward you earn after burning out.",
+      description: "The Nap Ministry founder's manifesto on rest as reclamation, not a reward you earn after burning out.",
       url: "https://www.hachettebookgroup.com/titles/tricia-hersey/rest-is-resistance/9780316365536/",
       relatedEpisode: 5,
     },
@@ -120,6 +120,46 @@ const TIP_DATA = {
       description: "How trauma reshapes the body and brain.",
       url: "https://www.besselvanderkolk.com/resources/the-body-keeps-the-score",
       relatedEpisode: null,
+    },
+  ],
+
+  guides: [
+    {
+      id: "cycle-tracking",
+      title: "A Guide to Tracking Your Cycle",
+      tag: "Biology",
+      relatedEpisode: 3,
+      description: "The four phases of your cycle, what's actually happening in each one, and how to start tracking it yourself.",
+      sections: [
+        {
+          heading: "Why bother tracking it",
+          body: "Your cycle isn't just \"the week you bleed.\" It's a roughly month-long loop of hormonal shifts that affect your energy, mood, appetite, skin, sleep, and motivation, whether you're paying attention to it or not. Tracking it isn't about optimizing yourself into a perfect schedule. It's about noticing the pattern so the hard weeks stop feeling random.",
+        },
+        {
+          heading: "Phase 1: Menstrual (roughly days 1 to 5)",
+          body: "Day 1 is the first day of bleeding. Estrogen and progesterone are at their lowest, which is part of why energy tends to dip here. This is a normal low point, not a personal failing. Rest, gentler movement, and lower-key plans tend to fit this phase better than pushing hard.",
+        },
+        {
+          heading: "Phase 2: Follicular (roughly days 1 to 13)",
+          body: "Overlaps with the tail end of your period and runs until ovulation. Estrogen starts climbing, and for a lot of people energy, focus, and motivation climb with it. This is often a good window for starting new projects, harder workouts, or plans that take more social energy.",
+        },
+        {
+          heading: "Phase 3: Ovulatory (roughly days 14 to 16)",
+          body: "Estrogen peaks and an egg is released. Energy and confidence are often at their highest here. Cervical mucus typically becomes clearer and stretchier around this window, one of the more reliable physical cues if you're paying attention to your body's signals.",
+        },
+        {
+          heading: "Phase 4: Luteal (roughly days 15 to 28)",
+          body: "Progesterone rises then drops sharply if there's no pregnancy, which is what triggers your period. The first half of this phase can feel steady. The last few days (classic PMS territory) are when mood dips, cravings, bloating, and irritability tend to show up. Naming it as \"late luteal\" instead of \"something's wrong with me\" changes a lot.",
+        },
+        {
+          heading: "How to actually start tracking",
+          body: "You don't need anything fancy: <ul><li>Mark day 1 (first day of bleeding) every cycle. This is your anchor point.</li><li>Jot down energy, mood, and any symptoms daily, even in one word.</li><li>Note cycle length (day 1 to the next day 1) for a few months to find your personal average. \"28 days\" is a population average, not a rule.</li><li>Look back after 2 to 3 cycles for patterns, not after 2 to 3 days.</li></ul>",
+        },
+        {
+          heading: "One honest note",
+          body: "This is general education, not medical advice. Cycles vary a lot between people and that's normal. If your periods are irregular, extremely painful, or something feels off, that's worth an actual conversation with a doctor, not just a tracking app. <em>From Fibroids to Freedom</em> on the Resources page is a good next read if pain or heavy bleeding is part of your story.",
+        },
+      ],
     },
   ],
 };
