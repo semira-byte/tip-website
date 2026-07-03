@@ -67,14 +67,6 @@ const TIP_DATA = {
     },
     {
       type: "Book",
-      title: "From Fibroids to Freedom",
-      author: "Tanika Gray Valbrun",
-      description: "The White Dress Project founder on fibroids, heavy and painful periods, and reclaiming your cycle.",
-      url: "https://www.sheldonpress.co.uk/titles/tanika-gray-valbrun/from-fibroids-to-freedom/9781399817301/",
-      relatedEpisode: 3,
-    },
-    {
-      type: "Book",
       title: "The Unapologetic Guide to Black Mental Health",
       author: "Dr. Rheeda Walker",
       description: "Navigating an unequal system, spotting the signs, and building real tools for emotional wellness.",
@@ -83,11 +75,27 @@ const TIP_DATA = {
     },
     {
       type: "Book",
+      title: "From Fibroids to Freedom",
+      author: "Tanika Gray Valbrun",
+      description: "The White Dress Project founder on fibroids, heavy and painful periods, and reclaiming your cycle.",
+      url: "https://www.sheldonpress.co.uk/titles/tanika-gray-valbrun/from-fibroids-to-freedom/9781399817301/",
+      relatedEpisode: 3,
+    },
+    {
+      type: "Book",
       title: "Sisters of the Yam",
       author: "bell hooks",
       description: "Black women and self-recovery: how self-care and collective healing are also political acts.",
       url: "https://www.routledge.com/Sisters-of-the-Yam-Black-Women-and-Self-Recovery/hooks/p/book/9781138821682",
       relatedEpisode: 4,
+    },
+    {
+      type: "Book",
+      title: "Rest Is Resistance",
+      author: "Tricia Hersey",
+      description: "The Nap Ministry founder's manifesto on rest as reclamation, not a reward you earn after burning out.",
+      url: "https://www.hachettebookgroup.com/titles/tricia-hersey/rest-is-resistance/9780316365536/",
+      relatedEpisode: 5,
     },
     {
       type: "Book",
@@ -104,14 +112,6 @@ const TIP_DATA = {
       description: "Conversations on trauma, resilience, and healing, reframing 'what's wrong with you' as 'what happened to you.'",
       url: "https://www.panmacmillan.com/authors/oprah-winfrey/what-happened-to-you/9781529068467",
       relatedEpisode: null,
-    },
-    {
-      type: "Book",
-      title: "Rest Is Resistance",
-      author: "Tricia Hersey",
-      description: "The Nap Ministry founder's manifesto on rest as reclamation, not a reward you earn after burning out.",
-      url: "https://www.hachettebookgroup.com/titles/tricia-hersey/rest-is-resistance/9780316365536/",
-      relatedEpisode: 5,
     },
     {
       type: "Book",
