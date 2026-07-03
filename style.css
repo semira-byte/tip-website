@@ -600,7 +600,7 @@ footer {
 
 .about-hero-visual {
   flex: 0 0 auto;
-  width: min(280px, 26vw);
+  width: min(480px, 40vw);
 }
 
 .about-hero-visual-img {
