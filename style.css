@@ -586,8 +586,30 @@ footer {
 
 /* ABOUT PAGE */
 .about-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
   padding: 100px 48px 72px;
+}
+
+.about-hero-content {
   max-width: 640px;
+  flex: 1 1 auto;
+}
+
+.about-hero-visual {
+  flex: 0 0 auto;
+  width: min(280px, 26vw);
+}
+
+.about-hero-visual-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  border: 0.5px solid var(--card-border);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
 }
 
 .about-hero h1 {
@@ -718,5 +740,6 @@ footer {
   footer { padding: 24px; flex-direction: column; align-items: flex-start; }
 
   .page-hero { padding: 52px 24px 40px; }
-  .about-hero { padding: 64px 24px 52px; }
+  .about-hero { flex-direction: column-reverse; padding: 64px 24px 52px; }
+  .about-hero-visual { width: min(220px, 55vw); }
 }
