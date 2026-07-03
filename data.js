@@ -102,7 +102,7 @@ const TIP_DATA = {
       title: "What Happened to You?",
       author: "Oprah Winfrey & Dr. Bruce Perry",
       description: "Conversations on trauma, resilience, and healing — reframing 'what's wrong with you' as 'what happened to you.'",
-      url: "https://us.macmillan.com/books/9781250223210/whathappenedtoyou/",
+      url: "https://www.panmacmillan.com/authors/oprah-winfrey/what-happened-to-you/9781529068467",
       relatedEpisode: null,
     },
     {
@@ -120,14 +120,6 @@ const TIP_DATA = {
       description: "How trauma reshapes the body and brain.",
       url: "https://www.besselvanderkolk.com/resources/the-body-keeps-the-score",
       relatedEpisode: null,
-    },
-    {
-      type: "Website",
-      title: "In the Flow — Cycle Syncing Guide",
-      author: null,
-      description: "Understanding your four phases and how to work with them.",
-      url: "#",
-      relatedEpisode: 3,
     },
   ],
 };
