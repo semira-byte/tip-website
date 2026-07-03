@@ -109,6 +109,10 @@ nav {
 /* HERO */
 .hero {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
   padding: 100px 48px 80px;
   overflow: hidden;
 }
@@ -122,6 +126,30 @@ nav {
   height: 600px;
   background: radial-gradient(circle, var(--purple-glow) 0%, transparent 65%);
   pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: min(420px, 34vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-visual-img {
+  position: relative;
+  width: auto;
+  height: min(380px, 42vh);
+  max-width: 100%;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
 }
 
 .hero-eyebrow {
@@ -655,7 +683,9 @@ footer {
   .nav-links { display: none; }
   .nav-hamburger { display: block; }
 
-  .hero { padding: 64px 24px 56px; }
+  .hero { flex-direction: column; padding: 64px 24px 40px; }
+  .hero-visual { width: 100%; order: -1; margin-bottom: 8px; }
+  .hero-visual-img { height: min(220px, 28vh); }
   .pillars-bar { flex-direction: column; }
   .pillar { border-right: none; border-bottom: 0.5px solid var(--card-border); }
   .pillar:last-child { border-bottom: none; }
