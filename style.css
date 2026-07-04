@@ -544,6 +544,10 @@ nav {
   justify-content: center;
 }
 
+.subscribe-kit-form form {
+  width: 100%;
+}
+
 .subscribe-input {
   flex: 1;
   background: var(--card);
