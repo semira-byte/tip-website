@@ -649,6 +649,108 @@ footer {
 .about-body p { margin-bottom: 20px; }
 .about-body strong { color: #ddd; font-weight: 500; }
 
+/* PILLAR CARDS */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.pillar-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border: 0.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.pillar-card:hover {
+  border-color: #333;
+  transform: translateY(-4px);
+}
+
+.pillar-card-num {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  font-size: 88px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(123, 47, 255, 0.06);
+  pointer-events: none;
+}
+
+.pillar-icon-badge {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--purple-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-light);
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.pillar-label {
+  position: relative;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.pillar-title {
+  position: relative;
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.pillar-desc {
+  position: relative;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.pillar-tags {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pillar-tag {
+  font-size: 11px;
+  color: #999;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--card-border);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.pillar-credential {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 0.5px solid var(--card-border);
+}
+
+.pillar-credential i { font-size: 14px; }
+
 /* PAGE HERO (episodes, resources) */
 .page-hero {
   padding: 72px 48px 56px;
