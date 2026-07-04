@@ -120,16 +120,15 @@
     <a class="btn-primary" href="episodes.html#unfiltered-perspectives">Unfiltered Perspectives →</a>
   </section>
 
-  <!-- SUBSCRIBE: hidden until email provider is connected -->
-  <!-- <section class="subscribe-section">
+  <!-- SUBSCRIBE -->
+  <section class="subscribe-section" id="subscribe">
     <div class="subscribe-eyebrow">For the dedicated healers</div>
     <h2 class="subscribe-title">Don't miss<br>Season 3</h2>
     <p class="subscribe-sub">New episodes dropping soon. Subscribe and be the first to know.</p>
-    <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-      <input class="subscribe-input" type="email" placeholder="your@email.com" required />
-      <button class="subscribe-btn" type="submit">Notify me</button>
-    </form>
-  </section> -->
+    <div class="subscribe-kit-form">
+      <script async data-uid="9041862917" src="https://the-inside-perspective.kit.com/9041862917/index.js"></script>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -146,6 +145,17 @@
 <script>
   function toggleMenu() {
     document.getElementById('mobile-menu').classList.toggle('open');
+  }
+</script>
+<script>
+  if (window.location.hash) {
+    const scrollToHash = () => {
+      const el = document.querySelector(window.location.hash);
+      if (el) el.scrollIntoView();
+    };
+    window.addEventListener('load', scrollToHash);
+    setTimeout(scrollToHash, 1000);
+    setTimeout(scrollToHash, 2000);
   }
 </script>
 <script>
@@ -190,20 +200,6 @@
         ${r.relatedEpisode ? `<div class="res-ep">Referenced in Ep. ${r.relatedEpisode}</div>` : `<div class="res-link">View resource →</div>`}
       </a>
     `).join('');
-  }
-
-  function handleSubscribe(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.subscribe-btn');
-    btn.textContent = 'You\'re in ✓';
-    btn.style.background = '#3a9e5f';
-    btn.style.color = '#fff';
-    e.target.querySelector('input').value = '';
-    setTimeout(() => {
-      btn.textContent = 'Notify me';
-      btn.style.background = '';
-      btn.style.color = '';
-    }, 3000);
   }
 
   renderHomepageEpisodes();

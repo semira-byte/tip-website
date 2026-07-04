@@ -535,6 +535,12 @@ nav {
   margin: 0 auto;
 }
 
+.subscribe-kit-form {
+  max-width: 440px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .subscribe-input {
   flex: 1;
   background: var(--card);
