@@ -65,6 +65,36 @@
     </div>
     <div class="episodes-grid" id="prev-episodes"></div>
   </section>
+
+  <section class="unfiltered-section" id="unfiltered-perspectives">
+    <div class="unfiltered-intro">
+      <div class="section-eyebrow">Anonymous, always</div>
+      <h2 class="section-title">Unfiltered Perspectives</h2>
+      <p>
+        Have a story, question, or insight you'd like to share? The Inside Perspective is creating space
+        for open and honest conversations, completely anonymous. Whether it's a personal experience, a
+        thought-provoking question, or a topic you'd love to hear discussed, your voice matters. Drop your
+        thoughts below, and let's reflect, connect, and grow together.
+      </p>
+    </div>
+    <form class="unfiltered-card" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="unfiltered-field">
+        <label class="unfiltered-label" for="unfiltered-type">This is</label>
+        <select class="unfiltered-select" id="unfiltered-type" name="type">
+          <option value="Personal experience">A personal experience</option>
+          <option value="Question">A question</option>
+          <option value="Topic idea">A topic idea</option>
+          <option value="Something else">Something else</option>
+        </select>
+      </div>
+      <div class="unfiltered-field">
+        <label class="unfiltered-label" for="unfiltered-message">Your thoughts</label>
+        <textarea class="unfiltered-textarea" id="unfiltered-message" name="message" placeholder="Share as much or as little as you want..." required></textarea>
+      </div>
+      <button class="btn-primary" type="submit">Submit anonymously</button>
+      <div class="unfiltered-note">Truly anonymous. We don't collect your name or email unless you choose to include it in your message.</div>
+    </form>
+  </section>
 </main>
 
 <footer>
