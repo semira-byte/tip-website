@@ -161,5 +161,42 @@ const TIP_DATA = {
         },
       ],
     },
+    {
+      id: "panic-attacks",
+      title: "A Guide to Getting Through a Panic Attack",
+      tag: "Mental Health",
+      relatedEpisode: 2,
+      description: "What's actually happening in your body during a panic attack, how to tell it apart from an emergency, and what to do in the moment.",
+      sections: [
+        {
+          heading: "What's actually happening",
+          body: "A panic attack is your body's fight-or-flight response firing at full volume with no real threat to respond to. Your heart races, your breathing gets fast and shallow, adrenaline floods your system, and your brain reads all of that as \"something is very wrong,\" which makes the panic feel even more real. It's miserable, but it's not dangerous on its own. Most panic attacks peak within about 10 minutes and pass on their own even if you do nothing.",
+        },
+        {
+          heading: "How to tell it apart from an emergency",
+          body: "Common signs of a panic attack: racing heart, chest tightness, shortness of breath, dizziness, trembling, sweating, a feeling of unreality, and a sudden wave of fear or dread. That said, chest pain can also mean something else entirely. If this is your first one, if the chest pain is severe, or if something just feels different from your usual pattern, treat it like a medical emergency and get checked out. It's always okay to be wrong about that in the safe direction.",
+        },
+        {
+          heading: "What actually helps in the moment",
+          body: "You don't need to make the fear disappear. You need to ride it out. A few things that genuinely help: <ul><li><strong>Slow your exhale.</strong> Breathe in for 4 counts, hold for 4, out for 8. A longer exhale tells your nervous system it's safe to calm down.</li><li><strong>5-4-3-2-1 grounding.</strong> Name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, 1 you can taste. It pulls your brain out of the spiral and into the room you're actually in.</li><li><strong>Cold water or an ice cube.</strong> Splashing cold water on your face or holding ice triggers a reflex that can slow your heart rate down.</li><li><strong>Sour candy.</strong> An intensely sour taste is a sharp sensory jolt that can pull your brain out of the spiral, the same idea as the ice cube, just easier to keep in your bag.</li><li><strong>Say it out loud.</strong> \"I'm having a panic attack. It's not dangerous. It will pass.\" Naming it takes some of its power away.</li></ul>",
+        },
+        {
+          heading: "Don't fight it",
+          body: "The instinct is to panic about the panic, to fight the racing heart and the shortness of breath like they're the enemy. That fight is usually what stretches a 10-minute attack into a 30-minute one. Letting the sensations be there without adding a second layer of fear on top tends to shorten it, even though it feels backwards in the moment.",
+        },
+        {
+          heading: "After it passes",
+          body: "You're going to be tired, maybe a little shaky or foggy. That's normal, your body just ran a sprint it didn't need to run. Drink some water, rest if you can, and skip the instinct to immediately analyze what caused it. That conversation can happen later, when you're not still coming down from the adrenaline.",
+        },
+        {
+          heading: "When to get more support",
+          body: "One panic attack isn't a diagnosis. But if they're becoming frequent, if you're rearranging your life to avoid situations that might trigger one, or if the fear of the next one is its own constant presence, that's worth bringing to an actual professional. Therapy (especially CBT) and medication are both legitimate, common tools here, not a last resort.",
+        },
+        {
+          heading: "One honest note",
+          body: "This is general education, not medical advice. Everyone's experience of panic and anxiety looks a little different. <em>The Unapologetic Guide to Black Mental Health</em> on the Resources page is a good next read if you want to go deeper.",
+        },
+      ],
+    },
   ],
 };
