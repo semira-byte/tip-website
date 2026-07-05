@@ -545,7 +545,13 @@ nav {
 }
 
 .subscribe-kit-form form {
-  width: 100%;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.subscribe-kit-form .formkit-form[data-uid] {
+  max-width: none !important;
+  width: 100% !important;
 }
 
 .subscribe-input {
