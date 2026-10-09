@@ -65,17 +65,17 @@
   <section class="section">
     <div class="section-header">
       <div>
-        <div class="section-eyebrow">Now loading</div>
+        <div class="section-eyebrow">Now streaming</div>
         <h2 class="section-title">Season 3</h2>
       </div>
-      <div class="s3-badge" style="font-size:10px;font-weight:600;background:rgba(123,47,255,0.1);color:#a66fff;border:0.5px solid rgba(123,47,255,0.25);border-radius:4px;padding:8px 16px;letter-spacing:0.12em;text-transform:uppercase;">Coming Soon</div>
+      <div class="s3-badge" style="font-size:10px;font-weight:600;background:rgba(123,47,255,0.1);color:#a66fff;border:0.5px solid rgba(123,47,255,0.25);border-radius:4px;padding:8px 16px;letter-spacing:0.12em;text-transform:uppercase;">Now Streaming</div>
     </div>
 
     <div class="s3-banner" style="margin-bottom:32px;">
       <div class="s3-banner-text">
         <div class="s3-label">Season Theme</div>
         <div class="s3-title">"I'm Learning to Take Care of Myself."</div>
-        <div class="s3-theme">5 episodes. Biology · Mental Health · Lifestyle.</div>
+        <div class="s3-theme">A season opener plus 5 episodes. Biology · Mental Health · Lifestyle.</div>
       </div>
     </div>
 
@@ -197,6 +197,7 @@
       <div class="ep-card ${ep.youtubeId ? '' : 'ep-coming'}" data-index="${i}">
         <div class="ep-thumb">
           <div class="ep-thumb-inner"></div>
+          ${ep.youtubeId ? `<div class="ep-thumb-photo" style="background-image:url('https://i.ytimg.com/vi/${ep.youtubeId}/hqdefault.jpg')"></div>` : ''}
           <svg class="ep-thumb-hex" width="90" height="104" viewBox="0 0 90 104" fill="none">
             <polygon points="45,2 88,26 88,78 45,102 2,78 2,26" stroke="#7B2FFF" stroke-width="1" fill="none"/>
           </svg>
@@ -245,6 +246,13 @@
 
   renderS3();
   renderPrevious();
+
+  // Open an episode straight from a link like episodes.html?ep=0
+  const epParam = new URLSearchParams(window.location.search).get('ep');
+  if (epParam !== null) {
+    const linked = TIP_DATA.season3.episodes.find(ep => String(ep.number) === epParam);
+    if (linked) openModal(linked);
+  }
 </script>
 </body>
 </html>

@@ -3,6 +3,15 @@ const TIP_DATA = {
     theme: "I'm learning to take care of myself.",
     episodes: [
       {
+        number: 0,
+        title: "ApparentLiy; I Have a Podcast",
+        description: "The season opener. Where I've been, why I stepped away, and why TiP is back: therapy, EMDR, a month in Kenya, and learning to take care of myself.",
+        tag: "Mental Health",
+        status: "live",
+        youtubeId: "mbDSzYsospk",
+        research: [],
+      },
+      {
         number: 1,
         title: "NervousLiy; Stress and the Nervous System",
         description: "What stress is actually doing to your body and organs. The entry point, because everyone's been here.",

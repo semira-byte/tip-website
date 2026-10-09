@@ -52,7 +52,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-eyebrow">Season 3 — Coming Soon</div>
+      <div class="hero-eyebrow">Season 3 · Now Streaming</div>
       <h1 class="hero-title">The <span class="accent">Inside</span><br>Perspective</h1>
       <p class="hero-theme">"I'm learning to take care of myself."</p>
       <p class="hero-desc">
@@ -102,7 +102,7 @@
   <section class="section">
     <div class="section-header">
       <div>
-        <div class="section-eyebrow">What's coming</div>
+        <div class="section-eyebrow">Now streaming</div>
         <h2 class="section-title">Season 3</h2>
       </div>
       <a class="section-link" href="episodes.html">All episodes →</a>
@@ -114,7 +114,7 @@
         <div class="s3-title">I'm Learning to Take Care of Myself</div>
         <div class="s3-theme">5 episodes. Real talk. No filter.</div>
       </div>
-      <div class="s3-badge">Coming Soon</div>
+      <div class="s3-badge">Now Streaming</div>
     </div>
 
     <div class="episodes-grid" id="homepage-episodes"></div>
@@ -146,7 +146,7 @@
   <section class="subscribe-section" id="subscribe">
     <div class="subscribe-eyebrow">For the dedicated healers</div>
     <h2 class="subscribe-title">Don't miss<br>Season 3</h2>
-    <p class="subscribe-sub">New episodes dropping soon. Subscribe and be the first to know.</p>
+    <p class="subscribe-sub">Season 3 is here. Subscribe and be the first to know when new episodes drop.</p>
     <div class="subscribe-kit-form">
       <script async data-uid="52a54979e1" src="https://the-inside-perspective.kit.com/52a54979e1/index.js"></script>
     </div>
@@ -195,24 +195,30 @@
   function renderHomepageEpisodes() {
     const container = document.getElementById('homepage-episodes');
     const eps = TIP_DATA.season3.episodes.slice(0, 4);
-    container.innerHTML = eps.map(ep => `
-      <div class="ep-card ep-coming">
+    container.innerHTML = eps.map(ep => {
+      const live = !!ep.youtubeId;
+      const tagName = live ? 'a' : 'div';
+      const href = live ? ` href="episodes.html?ep=${ep.number}"` : '';
+      return `
+      <${tagName} class="ep-card ${live ? '' : 'ep-coming'}"${href} style="display:block;text-decoration:none;">
         <div class="ep-thumb">
           <div class="ep-thumb-inner"></div>
+          ${live ? `<div class="ep-thumb-photo" style="background-image:url('https://i.ytimg.com/vi/${ep.youtubeId}/hqdefault.jpg')"></div>` : ''}
           <svg class="ep-thumb-hex" width="90" height="104" viewBox="0 0 90 104" fill="none">
             <polygon points="45,2 88,26 88,78 45,102 2,78 2,26" stroke="#7B2FFF" stroke-width="1" fill="none"/>
           </svg>
           <span class="ep-num">Ep. ${String(ep.number).padStart(2,'0')}</span>
-          <div class="ep-play"><i class="ti ti-clock" aria-hidden="true"></i></div>
+          <div class="ep-play"><i class="ti ${live ? 'ti-player-play' : 'ti-clock'}" aria-hidden="true"></i></div>
         </div>
         <div class="ep-body">
           <div class="ep-tag"><i class="ti ${tagIcon(ep.tag)}" style="font-size:10px;margin-right:4px;" aria-hidden="true"></i>${ep.tag}</div>
           <div class="ep-title">${ep.title}</div>
           <div class="ep-desc">${ep.description}</div>
-          <div class="ep-meta"><span class="ep-status soon">Coming soon</span></div>
+          <div class="ep-meta"><span class="ep-status ${live ? 'live' : 'soon'}">${live ? 'Watch now' : 'Coming soon'}</span></div>
         </div>
-      </div>
-    `).join('');
+      </${tagName}>
+    `;
+    }).join('');
   }
 
   function renderHomepageResources() {
