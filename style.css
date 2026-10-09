@@ -959,3 +959,9 @@ footer {
   background: linear-gradient(135deg, rgba(13, 9, 32, 0.55) 0%, rgba(8, 8, 16, 0.75) 100%);
 }
 .ep-thumb-photo ~ .ep-num { color: #e8e8e8; z-index: 1; }
+
+/* Crisis resources */
+.footer-crisis { flex-basis: 100%; font-size: 11px; color: var(--text-dim); line-height: 1.6; }
+.footer-crisis a, .unfiltered-care a { color: var(--text-muted); text-decoration: underline; }
+.unfiltered-care { margin: 0 0 14px; }
+.modal-links:not(:empty) { margin-top: 16px; }

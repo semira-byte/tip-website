@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Episodes — The Inside Perspective</title>
-  <meta name="description" content="All episodes of The Inside Perspective. Biology, mental health, lifestyle: real talk for dedicated healers." />
+  <meta name="description" content="All episodes of The Inside Perspective. Biology, mental health, lifestyle: real talk for Insiders." />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
   <link rel="icon" href="images/favicon.ico" />
@@ -12,12 +12,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="The Inside Perspective" />
   <meta property="og:title" content="Episodes — The Inside Perspective" />
-  <meta property="og:description" content="All episodes of The Inside Perspective. Biology, mental health, lifestyle: real talk for dedicated healers." />
+  <meta property="og:description" content="All episodes of The Inside Perspective. Biology, mental health, lifestyle: real talk for Insiders." />
   <meta property="og:image" content="https://www.insideperspective.org/images/about-cover.jpg" />
   <meta property="og:url" content="https://www.insideperspective.org/episodes.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Episodes — The Inside Perspective" />
-  <meta name="twitter:description" content="All episodes of The Inside Perspective. Biology, mental health, lifestyle: real talk for dedicated healers." />
+  <meta name="twitter:description" content="All episodes of The Inside Perspective. Biology, mental health, lifestyle: real talk for Insiders." />
   <meta name="twitter:image" content="https://www.insideperspective.org/images/about-cover.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" />
@@ -117,6 +117,7 @@
         <label class="unfiltered-label" for="unfiltered-message">Your thoughts</label>
         <textarea class="unfiltered-textarea" id="unfiltered-message" name="message" placeholder="Share as much or as little as you want..." required></textarea>
       </div>
+      <div class="unfiltered-note unfiltered-care">Submissions may inspire future episodes, but I'm not able to respond to them personally. If you're in crisis, please call or text <a href="https://988lifeline.org" target="_blank" rel="noopener">988</a> (US) or visit <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> instead.</div>
       <button class="btn-primary" type="submit">Submit anonymously</button>
       <div class="unfiltered-note">Truly anonymous. We don't collect your name or email unless you choose to include it in your message.</div>
     </form>
@@ -136,6 +137,7 @@
     <a href="https://podcasts.apple.com/us/podcast/the-inside-perspective/id1631885403" target="_blank" rel="noopener">Apple Podcasts</a>
     <a href="https://anchor.fm/s/926f3500/podcast/rss" target="_blank" rel="noopener">RSS</a>
   </div>
+  <div class="footer-crisis">If you're struggling, call or text <a href="https://988lifeline.org" target="_blank" rel="noopener">988</a> (US) or visit <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a>.</div>
 </footer>
 
 <!-- MODAL -->
@@ -147,6 +149,7 @@
       <div class="modal-tag" id="modal-tag"></div>
       <div class="modal-title" id="modal-title"></div>
       <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-links" id="modal-links"></div>
     </div>
   </div>
 </div>
@@ -167,7 +170,10 @@
   function openModal(ep) {
     document.getElementById('modal-tag').innerHTML = `<i class="ti ${tagIcon(ep.tag)}" style="font-size:10px;margin-right:4px;"></i>${ep.tag}`;
     document.getElementById('modal-title').textContent = ep.title;
-    document.getElementById('modal-desc').textContent = ep.description;
+    document.getElementById('modal-desc').textContent = ep.description || '';
+    document.getElementById('modal-links').innerHTML = ep.spotifyUrl
+      ? `<a class="btn-ghost" href="${ep.spotifyUrl}" target="_blank" rel="noopener"><i class="ti ti-brand-spotify" style="color:#1DB954;margin-right:6px;" aria-hidden="true"></i>Listen on Spotify</a>`
+      : '';
 
     const videoEl = document.getElementById('modal-video');
     if (ep.youtubeId) {

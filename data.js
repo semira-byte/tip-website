@@ -9,6 +9,7 @@ const TIP_DATA = {
         tag: "Mental Health",
         status: "live",
         youtubeId: "mbDSzYsospk",
+        spotifyUrl: null,
         research: [],
       },
       {
@@ -129,6 +130,22 @@ const TIP_DATA = {
       description: "How trauma reshapes the body and brain.",
       url: "https://www.besselvanderkolk.com/resources/the-body-keeps-the-score",
       relatedEpisode: null,
+    },
+    {
+      type: "Research",
+      title: "Young Black Men Are Now Dying by Suicide at a Historic Rate",
+      author: "Capital B News",
+      description: "CDC data on the rise in suicide deaths among Black Americans, with young Black men hit hardest.",
+      url: "https://capitalbnews.org/young-black-men-suicide-rates/",
+      relatedEpisode: 0,
+    },
+    {
+      type: "Research",
+      title: "Suicide Rates Among Black Women and Girls Have Climbed for Two Decades",
+      author: "Columbia University Mailman School of Public Health",
+      description: "Two decades of data showing suicide rates more than doubled for Black girls and young women ages 15 to 24.",
+      url: "https://www.publichealth.columbia.edu/news/suicide-rates-among-black-women-girls-have-climbed-two-decades",
+      relatedEpisode: 0,
     },
   ],
 

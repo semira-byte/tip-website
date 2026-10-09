@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Inside Perspective — For the Dedicated Healers</title>
+  <title>The Inside Perspective · For the Insiders</title>
   <meta name="description" content="A deep dive into the inner workings of your health and healing. Biology, lifestyle, and mental health, not from a place of perfection, but growth." />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
@@ -11,12 +11,12 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="The Inside Perspective" />
-  <meta property="og:title" content="The Inside Perspective — For the Dedicated Healers" />
+  <meta property="og:title" content="The Inside Perspective · For the Insiders" />
   <meta property="og:description" content="A deep dive into the inner workings of your health and healing. Biology, lifestyle, and mental health, not from a place of perfection, but growth." />
   <meta property="og:image" content="https://www.insideperspective.org/images/about-cover.jpg" />
   <meta property="og:url" content="https://www.insideperspective.org/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Inside Perspective — For the Dedicated Healers" />
+  <meta name="twitter:title" content="The Inside Perspective · For the Insiders" />
   <meta name="twitter:description" content="A deep dive into the inner workings of your health and healing. Biology, lifestyle, and mental health, not from a place of perfection, but growth." />
   <meta name="twitter:image" content="https://www.insideperspective.org/images/about-cover.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -124,7 +124,7 @@
   <section class="section">
     <div class="section-header">
       <div>
-        <div class="section-eyebrow">Curated for healers</div>
+        <div class="section-eyebrow">Curated for Insiders</div>
         <h2 class="section-title">Resources</h2>
       </div>
       <a class="section-link" href="resources.html">View all →</a>
@@ -144,7 +144,7 @@
 
   <!-- SUBSCRIBE -->
   <section class="subscribe-section" id="subscribe">
-    <div class="subscribe-eyebrow">For the dedicated healers</div>
+    <div class="subscribe-eyebrow">For the Insiders</div>
     <h2 class="subscribe-title">Don't miss<br>Season 3</h2>
     <p class="subscribe-sub">Season 3 is here. Subscribe and be the first to know when new episodes drop.</p>
     <div class="subscribe-kit-form">
@@ -166,6 +166,7 @@
     <a href="https://podcasts.apple.com/us/podcast/the-inside-perspective/id1631885403" target="_blank" rel="noopener">Apple Podcasts</a>
     <a href="https://anchor.fm/s/926f3500/podcast/rss" target="_blank" rel="noopener">RSS</a>
   </div>
+  <div class="footer-crisis">If you're struggling, call or text <a href="https://988lifeline.org" target="_blank" rel="noopener">988</a> (US) or visit <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a>.</div>
 </footer>
 
 <script src="data.js"></script>
@@ -230,7 +231,7 @@
         <div class="res-title">${r.title}</div>
         ${r.author ? `<div class="res-author">${r.author}</div>` : ''}
         <div class="res-desc">${r.description}</div>
-        ${r.relatedEpisode ? `<div class="res-ep">Referenced in Ep. ${r.relatedEpisode}</div>` : `<div class="res-link">View resource →</div>`}
+        ${r.relatedEpisode != null ? `<div class="res-ep">Referenced in Ep. ${String(r.relatedEpisode).padStart(2,'0')}</div>` : `<div class="res-link">View resource →</div>`}
       </a>
     `).join('');
   }
