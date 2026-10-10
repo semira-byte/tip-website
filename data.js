@@ -9,7 +9,7 @@ const TIP_DATA = {
         tag: "Mental Health",
         status: "live",
         youtubeId: "mbDSzYsospk",
-        spotifyUrl: null,
+        spotifyUrl: "https://open.spotify.com/episode/74XfkuLcTSsdnbmzpvEi3L",
         research: [],
       },
       {
