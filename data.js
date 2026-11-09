@@ -14,7 +14,7 @@ const TIP_DATA = {
       },
       {
         number: 1,
-        title: "NervousLiy; Stress and the Nervous System",
+        title: "Why Your Mind Goes Blank Under Stress; NervousLiy",
         description: "What stress is actually doing to your body and organs. The entry point, because everyone's been here.",
         tag: "Biology",
         status: "coming-soon",
@@ -23,7 +23,7 @@ const TIP_DATA = {
       },
       {
         number: 2,
-        title: "MentalLiy; Anxiety and Depression",
+        title: "When Anxiety and Depression Show Up Together; QuietLiy",
         description: "Lived experience, no filter. What it feels like day to day and what actually helps.",
         tag: "Mental Health",
         status: "coming-soon",
@@ -32,7 +32,7 @@ const TIP_DATA = {
       },
       {
         number: 3,
-        title: "CyclicaLiy; The Period Cycle",
+        title: "What Your Cycle Is Doing to Your Mood; MonthLiy",
         description: "Educational and empowering. Working with your cycle, not against it.",
         tag: "Biology",
         status: "coming-soon",
@@ -41,7 +41,7 @@ const TIP_DATA = {
       },
       {
         number: 4,
-        title: "ConfidentLiy; Finding Self Confidence",
+        title: "Why Confidence Feels So Hard to Hold Onto; ConfidentLiy",
         description: "The messy process of building it, after the inner work has already started.",
         tag: "Lifestyle",
         status: "coming-soon",
@@ -50,7 +50,7 @@ const TIP_DATA = {
       },
       {
         number: 5,
-        title: "PhysicaLiy; Working Out",
+        title: "What Working Out Actually Does for Your Mind; PhysicalLiy",
         description: "Movement as self care. Ends the season on something actionable and energizing.",
         tag: "Lifestyle",
         status: "coming-soon",
