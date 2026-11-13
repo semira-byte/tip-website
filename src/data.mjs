@@ -1,25 +1,70 @@
-const TIP_DATA = {
+/**
+ * TiP site content. This is the ONE file to edit when an episode drops.
+ *
+ * To publish a new episode:
+ *   1. Set its status to "live"
+ *   2. Add its youtubeId (the part after youtu.be/ or watch?v=)
+ *   3. Add spotifyUrl and datePublished (YYYY-MM-DD) if you have them
+ *   4. Run `node build.mjs` and the episode gets its own page, sitemap entry and homepage card
+ *
+ * Episode fields:
+ *   number, title, tag ("Biology" | "Lifestyle" | "Mental Health"), status ("live" | "coming-soon"),
+ *   description (one or two lines, shown on cards and as the page meta description),
+ *   about (optional, longer paragraphs for the episode page),
+ *   youtubeId, spotifyUrl, datePublished, transcript (optional, plain text paragraphs)
+ */
+
+export const SITE = {
+  name: "The Inside Perspective",
+  shortName: "TiP",
+  url: "https://www.insideperspective.org",
+  tagline: "For the Insiders",
+  description:
+    "A deep dive into the inner workings of your health and healing. Biology, lifestyle, and mental health, not from a place of perfection, but growth.",
+  host: "Aaliyah",
+  links: {
+    youtube: "https://www.youtube.com/@theinsideperspective",
+    instagram: "https://www.instagram.com/theinsideperspective",
+    tiktok: "https://www.tiktok.com/@theinsideperspective",
+    spotify: "https://open.spotify.com/show/6cOuTHzWyZyElbR5fuEc96",
+    apple: "https://podcasts.apple.com/us/podcast/the-inside-perspective/id1631885403",
+    rss: "https://anchor.fm/s/926f3500/podcast/rss",
+  },
+  // Formspree endpoint for the anonymous Unfiltered Perspectives form
+  unfilteredEndpoint: "https://formspree.io/f/mgojrdrj",
+};
+
+export const TIP_DATA = {
   season3: {
     theme: "I'm learning to take care of myself.",
     episodes: [
       {
         number: 0,
         title: "ApparentLiy; I Have a Podcast",
-        description: "The season opener. Where I've been, why I stepped away, and why TiP is back: therapy, EMDR, a month in Kenya, and learning to take care of myself.",
+        description:
+          "The season opener. Where I've been, why I stepped away, and why TiP is back: therapy, EMDR, a month in Kenya, and learning to take care of myself.",
         tag: "Mental Health",
         status: "live",
         youtubeId: "mbDSzYsospk",
         spotifyUrl: "https://open.spotify.com/episode/74XfkuLcTSsdnbmzpvEi3L",
-        research: [],
+        datePublished: "2026-10-09",
+        contentNote: "This episode mentions suicide statistics.",
       },
       {
         number: 1,
         title: "Why Your Mind Goes Blank Under Stress; NervousLiy",
-        description: "What stress is actually doing to your body and organs. The entry point, because everyone's been here.",
+        // DRAFT listener copy, written in Aaliyah's voice for review
+        description:
+          "Ever been mid sentence and your brain just... leaves? That's not you being dramatic. It's your body doing its job. Here's what stress is actually doing on the inside.",
+        about: [
+          "Everybody's been there. The interview, the exam, the hard conversation, and right when you need your words, they're gone.",
+          "In this one we get into what's actually happening inside your body when stress hits: what your nervous system is prioritizing, why your thinking brain goes quiet, and how to bring yourself back.",
+        ],
         tag: "Biology",
-        status: "coming-soon",
-        youtubeId: null,
-        research: [],
+        status: "live",
+        youtubeId: "Muiu4QnhaVM",
+        spotifyUrl: null,
+        datePublished: null,
       },
       {
         number: 2,
@@ -28,7 +73,6 @@ const TIP_DATA = {
         tag: "Mental Health",
         status: "coming-soon",
         youtubeId: null,
-        research: [],
       },
       {
         number: 3,
@@ -37,7 +81,6 @@ const TIP_DATA = {
         tag: "Biology",
         status: "coming-soon",
         youtubeId: null,
-        research: [],
       },
       {
         number: 4,
@@ -46,7 +89,6 @@ const TIP_DATA = {
         tag: "Lifestyle",
         status: "coming-soon",
         youtubeId: null,
-        research: [],
       },
       {
         number: 5,
@@ -55,7 +97,6 @@ const TIP_DATA = {
         tag: "Lifestyle",
         status: "coming-soon",
         youtubeId: null,
-        research: [],
       },
     ],
   },
@@ -63,7 +104,12 @@ const TIP_DATA = {
   previousEpisodes: [
     { title: "EmotionalLiy; Attachment Styles", youtubeId: "-fE6cG-c4OA", tag: "Lifestyle", season: 2 },
     { title: "HistoricalLiy; It's in Our Genes", youtubeId: "8nbvJ6JfxJI", tag: "Biology", season: 2 },
-    { title: "FinancialLiy; Self Care or OverSpending? Between Treating Yourself and Staying Financially Healthy", youtubeId: "N8Bljt9PXPs", tag: "Lifestyle", season: 2 },
+    {
+      title: "FinancialLiy; Self Care or OverSpending? Between Treating Yourself and Staying Financially Healthy",
+      youtubeId: "N8Bljt9PXPs",
+      tag: "Lifestyle",
+      season: 2,
+    },
   ],
 
   resources: [
@@ -71,7 +117,8 @@ const TIP_DATA = {
       type: "Book",
       title: "My Grandmother's Hands",
       author: "Resmaa Menakem",
-      description: "Racialized trauma and the pathway to mending our hearts and bodies: trauma healing that lives in the body, not just the mind.",
+      description:
+        "Racialized trauma and the pathway to mending our hearts and bodies: trauma healing that lives in the body, not just the mind.",
       url: "https://resmaa.com/about-resmaa-menakem/",
       relatedEpisode: 1,
     },
@@ -119,7 +166,8 @@ const TIP_DATA = {
       type: "Book",
       title: "What Happened to You?",
       author: "Oprah Winfrey & Dr. Bruce Perry",
-      description: "Conversations on trauma, resilience, and healing, reframing 'what's wrong with you' as 'what happened to you.'",
+      description:
+        "Conversations on trauma, resilience, and healing, reframing 'what's wrong with you' as 'what happened to you.'",
       url: "https://www.panmacmillan.com/authors/oprah-winfrey/what-happened-to-you/9781529068467",
       relatedEpisode: null,
     },
@@ -143,7 +191,8 @@ const TIP_DATA = {
       type: "Research",
       title: "Suicide Rates Among Black Women and Girls Have Climbed for Two Decades",
       author: "Columbia University Mailman School of Public Health",
-      description: "Two decades of data showing suicide rates more than doubled for Black girls and young women ages 15 to 24.",
+      description:
+        "Two decades of data showing suicide rates more than doubled for Black girls and young women ages 15 to 24.",
       url: "https://www.publichealth.columbia.edu/news/suicide-rates-among-black-women-girls-have-climbed-two-decades",
       relatedEpisode: 0,
     },
@@ -155,7 +204,8 @@ const TIP_DATA = {
       title: "A Guide to Tracking Your Cycle",
       tag: "Biology",
       relatedEpisode: 3,
-      description: "The four phases of your cycle, what's actually happening in each one, and how to start tracking it yourself.",
+      description:
+        "The four phases of your cycle, what's actually happening in each one, and how to start tracking it yourself.",
       sections: [
         {
           heading: "Why bother tracking it",
@@ -192,7 +242,8 @@ const TIP_DATA = {
       title: "A Guide to Getting Through a Panic Attack",
       tag: "Mental Health",
       relatedEpisode: 2,
-      description: "What's actually happening in your body during a panic attack, how to tell it apart from an emergency, and what to do in the moment.",
+      description:
+        "What's actually happening in your body during a panic attack, how to tell it apart from an emergency, and what to do in the moment.",
       sections: [
         {
           heading: "What's actually happening",
@@ -229,7 +280,8 @@ const TIP_DATA = {
       title: "A Guide to Calming Your Nervous System",
       tag: "Biology",
       relatedEpisode: 1,
-      description: "Fight, flight, freeze, and fawn, why chronic stress feels different from a single scary moment, and a few techniques that actually shift your body out of it.",
+      description:
+        "Fight, flight, freeze, and fawn, why chronic stress feels different from a single scary moment, and a few techniques that actually shift your body out of it.",
       sections: [
         {
           heading: "The two modes your body runs on",
@@ -262,7 +314,8 @@ const TIP_DATA = {
       title: "A Guide to Building Real Self-Confidence",
       tag: "Lifestyle",
       relatedEpisode: 4,
-      description: "Why confidence is built through small proof of competence over time, not felt first, and what to actually do instead of waiting to feel ready.",
+      description:
+        "Why confidence is built through small proof of competence over time, not felt first, and what to actually do instead of waiting to feel ready.",
       sections: [
         {
           heading: "Confidence is a byproduct, not a starting point",
@@ -295,7 +348,8 @@ const TIP_DATA = {
       title: "A Guide to Making Exercise Actually Stick",
       tag: "Lifestyle",
       relatedEpisode: 5,
-      description: "Movement as self care instead of punishment, why waiting for motivation backfires, and how to build a habit that survives a bad week.",
+      description:
+        "Movement as self care instead of punishment, why waiting for motivation backfires, and how to build a habit that survives a bad week.",
       sections: [
         {
           heading: "Stop waiting for motivation",
@@ -328,7 +382,8 @@ const TIP_DATA = {
       title: "A Guide to Depression's Quieter Symptoms",
       tag: "Mental Health",
       relatedEpisode: 2,
-      description: "Depression doesn't always look like visible sadness. It often looks like low energy, numbness, or irritability instead, and recognizing that is the first step.",
+      description:
+        "Depression doesn't always look like visible sadness. It often looks like low energy, numbness, or irritability instead, and recognizing that is the first step.",
       sections: [
         {
           heading: "It doesn't always look like crying",
@@ -361,7 +416,8 @@ const TIP_DATA = {
       title: "A Guide to Setting Boundaries",
       tag: "Lifestyle",
       relatedEpisode: null,
-      description: "What a boundary actually is versus an ultimatum, and how to hold one without over explaining or apologizing for it.",
+      description:
+        "What a boundary actually is versus an ultimatum, and how to hold one without over explaining or apologizing for it.",
       sections: [
         {
           heading: "A boundary is not a punishment",

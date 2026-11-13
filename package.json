@@ -1,0 +1,12 @@
+{
+  "name": "inside-perspective-site",
+  "private": true,
+  "type": "module",
+  "description": "insideperspective.org. Edit src/data.mjs, then run npm run build. Deploy the dist/ folder.",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "PREVIEW=1 node build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": { "node": ">=18" }
+}
