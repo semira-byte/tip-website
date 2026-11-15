@@ -43,7 +43,7 @@ export const TIP_DATA = {
         title: "ApparentLiy; I Have a Podcast",
         description:
           "The season opener. Where I've been, why I stepped away, and why TiP is back: therapy, EMDR, a month in Kenya, and learning to take care of myself.",
-        tag: "Mental Health",
+        tag: "Lifestyle",
         status: "live",
         youtubeId: "mbDSzYsospk",
         spotifyUrl: "https://open.spotify.com/episode/74XfkuLcTSsdnbmzpvEi3L",
