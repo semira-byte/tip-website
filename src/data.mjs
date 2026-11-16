@@ -65,7 +65,7 @@ export const TIP_DATA = {
         tag: "Biology",
         status: "live",
         youtubeId: "Muiu4QnhaVM",
-        spotifyUrl: null, // TODO: paste the open.spotify.com episode link
+        spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/Why-Your-Mind-Goes-Blank-Under-Stress-NervousLiy-e3r9vk3",
         datePublished: "2026-10-29",
       },
       {
@@ -103,15 +103,21 @@ export const TIP_DATA = {
     ],
   },
 
+  // Handpicked archive (Nov 2026). Titles use the corrected Liy spelling.
+  // Every episode still lives on Spotify and YouTube; this is just the spotlight.
   previousEpisodes: [
-    { title: "EmotionalLiy; Attachment Styles", youtubeId: "-fE6cG-c4OA", tag: "Lifestyle", season: 2 },
-    { title: "HistoricalLiy; It's in Our Genes", youtubeId: "8nbvJ6JfxJI", tag: "Biology", season: 2 },
-    {
-      title: "FinancialLiy; Self Care or OverSpending? Between Treating Yourself and Staying Financially Healthy",
-      youtubeId: "N8Bljt9PXPs",
-      tag: "Lifestyle",
-      season: 2,
-    },
+    { title: "FinancialLiy; Self Care or OverSpending? Between Treating Yourself and Staying Financially Healthy", tag: "Lifestyle", season: 2, date: "2025-01-20", duration: "36 min", youtubeId: "N8Bljt9PXPs", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/FinancialLiy-Self-Care-or-OverSpending--Between-Treating-Yourself-and-Staying-Financially-Healthy-e2to3vj" },
+    { title: "FinancialLiy; How Does Money Work?", tag: "Lifestyle", season: 2, date: "2024-12-14", duration: "52 min", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/FinancialLiy-How-Does-Money-Work-e2sadro" },
+    { title: "DelicateLiy; Hair, Skin & Soul! My Self Care Rituals to Avoid Burnout", tag: "Lifestyle", season: 2, date: "2024-12-05", duration: "22 min", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/DelicateLiy-Hair--Skin--Soul--My-Self-Care-Rituals-to-Avoid-Burnout-e2rpvnj" },
+    { title: "GrowingLiy; Mental Health and Adulting 101", tag: "Mental Health", season: 2, date: "2024-11-23", duration: "41 min", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/GrowingLiy-Mental-Health-and-Adulting-101-e2rcjoc" },
+    { title: "MedicalLiy; Learn Your Uterus", tag: "Biology", season: 2, date: "2024-07-18", duration: "34 min", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/MedicalLiy-Learn-Your-Uterus-e2m6d6t" },
+    { title: "EmotionalLiy; Feeling Your Feelings", tag: "Mental Health", season: 2, date: "2024-06-17", duration: "42 min", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/EmotionaLiy-Feeling-your-Feelings-e2kuuas" },
+    { title: "InternalLiy; What Therapy Taught Me", tag: "Mental Health", season: 2, date: "2024-03-16", duration: "33 min", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/InternaLiy-What-Therapy-Taught-Me-Benefits-of-Therapy-e2h5i5q" },
+    { title: "EmotionalLiy; Attachment Styles", tag: "Lifestyle", season: 2, youtubeId: "-fE6cG-c4OA" },
+    { title: "HistoricalLiy; It's in Our Genes", tag: "Biology", season: 2, youtubeId: "8nbvJ6JfxJI" },
+    { title: "InternalLiy; Healing from Good People with Bad Habits", tag: "Mental Health", season: 1, date: "2023-03-17", duration: "19 min", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/InternaLiy-Healing-from-Good-People-with-Bad-Habits-e20ko80" },
+    { title: "HonestLiy; Tired of Being Tired", tag: "Lifestyle", season: 1, date: "2022-08-22", duration: "28 min", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/HonestLiy-Tired-of-Being-Tired-e1mphbj" },
+    { title: "HonestLiy; Why Is Communication So F**kin Hard?", tag: "Lifestyle", season: 1, date: "2022-07-13", duration: "37 min", spotifyUrl: "https://creators.spotify.com/pod/profile/theinsideperspective/episodes/HonestLiy-Why-is-Communication-so-Fkin-Hard-e1l0ao5" },
   ],
 
   resources: [

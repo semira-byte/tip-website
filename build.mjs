@@ -306,23 +306,21 @@ function epCard(L, ep, headingLevel = 'h3') {
     </li>`;
 }
 
+/** Archive episode: compact card, links out to YouTube (if there's a video) or Spotify. */
 function archiveCard(ep) {
-  const url = `https://www.youtube.com/watch?v=${ep.youtubeId}`;
+  const yt = ep.youtubeId ? `https://www.youtube.com/watch?v=${ep.youtubeId}` : null;
+  const url = yt || ep.spotifyUrl;
+  const where = yt ? 'YouTube' : 'Spotify';
+  const when = ep.date ? new Date(ep.date + 'T12:00:00Z').getUTCFullYear() : `Season ${ep.season}`;
+  const meta = [when, ep.duration].filter(Boolean).join(' · ');
   return `
     <li>
-      <article class="ep-card is-live">
-        <div class="ep-thumb">
-          <div class="ep-thumb-inner"></div>
-          ${ytThumb(ep.youtubeId)}<div class="ep-thumb-wash"></div>
-          <span class="ep-num">Season ${ep.season}</span>
-          <div class="ep-play" aria-hidden="true">${icon('player-play-filled')}</div>
-        </div>
-        <div class="ep-body">
-          <div class="ep-tag">${icon(tagIcon(ep.tag))}${esc(ep.tag)}</div>
-          <h3 class="ep-title"><a class="ep-card-link" href="${url}" target="_blank" rel="noopener">${esc(ep.title)}<span class="sr-only"> (opens YouTube)</span></a></h3>
-          <div class="ep-meta"><span class="ep-status live">Watch on YouTube</span></div>
-        </div>
-      </article>
+      <a class="res-card" href="${esc(url)}" target="_blank" rel="noopener">
+        <div class="res-type">${icon(tagIcon(ep.tag))}${esc(ep.tag)}</div>
+        <h3 class="res-title">${esc(ep.title)}</h3>
+        <div class="res-author">${esc(meta)}</div>
+        <div class="res-foot"><span class="res-link">${yt ? 'Watch' : 'Listen'} on ${where} ${icon('external-link')}<span class="sr-only"> (opens in a new tab)</span></span></div>
+      </a>
     </li>`;
 }
 
@@ -539,13 +537,14 @@ const pages = {}; // outPath -> html
     <div class="section-header">
       <div>
         <div class="section-eyebrow">The archive</div>
-        <h2 class="section-title" id="prev-title">Previous seasons</h2>
+        <h2 class="section-title" id="prev-title">From the archive</h2>
       </div>
       <a class="section-link" href="${SITE.links.youtube}" target="_blank" rel="noopener">Full archive on YouTube ${icon('external-link')}</a>
     </div>
-    <ul class="episodes-grid">${TIP_DATA.previousEpisodes.map(archiveCard).join('')}
+    <p class="section-intro">A few favorites from Seasons 1 and 2 that still hit.</p>
+    <ul class="resources-grid">${TIP_DATA.previousEpisodes.map(archiveCard).join('')}
     </ul>
-    <p class="archive-note">Seasons 1 and 2 live on <a href="${SITE.links.youtube}" target="_blank" rel="noopener">YouTube</a> and <a href="${SITE.links.spotify}" target="_blank" rel="noopener">Spotify</a>.</p>
+    <p class="archive-note">Every episode lives on <a href="${SITE.links.spotify}" target="_blank" rel="noopener">Spotify</a> and <a href="${SITE.links.youtube}" target="_blank" rel="noopener">YouTube</a>.</p>
   </section>
 
   <section class="unfiltered-section" id="unfiltered-perspectives" aria-labelledby="uf-title">
