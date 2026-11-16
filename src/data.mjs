@@ -63,8 +63,8 @@ export const TIP_DATA = {
         tag: "Biology",
         status: "live",
         youtubeId: "Muiu4QnhaVM",
-        spotifyUrl: null,
-        datePublished: null,
+        spotifyUrl: null, // TODO: paste the open.spotify.com episode link
+        datePublished: "2026-10-29",
       },
       {
         number: 2,

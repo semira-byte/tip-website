@@ -139,7 +139,7 @@ function ytThumb(id, { cls = 'ep-thumb-photo', alt = '', max = false } = {}) {
 
 function head(L, { title, description, path, image, type = 'website', jsonld = [], noindex = false }) {
   const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} · ${SITE.tagline}`;
-  const ogImage = image || `${SITE.url}/images/about-cover.jpg`;
+  const ogImage = image || `${SITE.url}/images/og-share.jpg`; // 1200x630, made for link previews
   const ld = jsonld.map((o) => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`).join('\n  ');
   return `<!DOCTYPE html>
 <html lang="en">
@@ -160,14 +160,16 @@ function head(L, { title, description, path, image, type = 'website', jsonld = [
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:image" content="${ogImage}">
   <meta property="og:url" content="${abs(path)}">
+  ${image ? '' : `<meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Inside Perspective podcast: the glass hand logo with a gold ring">`}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(fullTitle)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${ogImage}">
   <link rel="alternate" type="application/rss+xml" title="${SITE.name} podcast feed" href="${SITE.links.rss}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap">
+  <link rel="preload" href="${L.asset('/fonts/inter-400.woff2')}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${L.asset('/fonts/inter-900.woff2')}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${L.asset('/style.css')}">
   <script src="${L.asset('/assets/site.js')}" defer></script>
   ${ld}
