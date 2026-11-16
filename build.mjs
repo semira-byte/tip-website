@@ -539,7 +539,7 @@ const pages = {}; // outPath -> html
         <div class="section-eyebrow">The archive</div>
         <h2 class="section-title" id="prev-title">From the archive</h2>
       </div>
-      <a class="section-link" href="${SITE.links.youtube}" target="_blank" rel="noopener">Full archive on YouTube ${icon('external-link')}</a>
+      <a class="section-link" href="${SITE.links.spotify}" target="_blank" rel="noopener">Every episode on Spotify ${icon('external-link')}</a>
     </div>
     <p class="section-intro">A few favorites from Seasons 1 and 2 that still hit.</p>
     <ul class="resources-grid">${TIP_DATA.previousEpisodes.map(archiveCard).join('')}
