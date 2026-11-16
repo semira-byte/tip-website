@@ -417,7 +417,7 @@ const pages = {}; // outPath -> html
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="${L.page(LATEST.path)}">${icon('player-play-filled')}Watch the newest episode</a>
-        <a class="btn-ghost" href="${SITE.links.youtubeSubscribe}" target="_blank" rel="noopener">${icon('brand-youtube')}Subscribe on YouTube</a>
+        <a class="btn-ghost" href="${SITE.links.youtubeSubscribe}" target="_blank" rel="noopener">${icon('bell')}Subscribe on YouTube</a>
       </div>
       ${listenRow('Also on')}
     </div>
@@ -642,7 +642,7 @@ for (const ep of LIVE) {
         <p class="episode-lede">${esc(ep.description)}</p>
         <div class="hero-actions">
           <a class="btn-primary" href="${watchUrl}" target="_blank" rel="noopener">${icon('brand-youtube')}Watch on YouTube</a>
-          <a class="btn-ghost" href="${SITE.links.youtubeSubscribe}" target="_blank" rel="noopener">${icon('player-play-filled')}Subscribe on YouTube</a>
+          <a class="btn-ghost" href="${SITE.links.youtubeSubscribe}" target="_blank" rel="noopener">${icon('bell')}Subscribe on YouTube</a>
         </div>
         <div class="listen-row"><span>Prefer audio?</span><a href="${ep.spotifyUrl || SITE.links.spotify}" target="_blank" rel="noopener">${icon('brand-spotify')}Listen on Spotify</a><a href="${SITE.links.apple}" target="_blank" rel="noopener">${icon('brand-apple-podcast')}Apple Podcasts</a></div>
       </div>
