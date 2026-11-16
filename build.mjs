@@ -417,7 +417,7 @@ const pages = {}; // outPath -> html
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="${L.page(LATEST.path)}">${icon('player-play-filled')}Watch the newest episode</a>
-        <a class="btn-ghost" href="#subscribe">${icon('mail')}Get episodes by email</a>
+        <a class="btn-ghost" href="${SITE.links.youtubeSubscribe}" target="_blank" rel="noopener">${icon('brand-youtube')}Subscribe on YouTube</a>
       </div>
       ${listenRow('Also on')}
     </div>
@@ -539,7 +539,7 @@ const pages = {}; // outPath -> html
         <div class="section-eyebrow">The archive</div>
         <h2 class="section-title" id="prev-title">From the archive</h2>
       </div>
-      <a class="section-link" href="${SITE.links.spotify}" target="_blank" rel="noopener">Every episode on Spotify ${icon('external-link')}</a>
+      <a class="section-link" href="${SITE.links.youtube}" target="_blank" rel="noopener">Every episode on YouTube ${icon('external-link')}</a>
     </div>
     <p class="section-intro">A few favorites from Seasons 1 and 2 that still hit.</p>
     <ul class="resources-grid">${TIP_DATA.previousEpisodes.map(archiveCard).join('')}
@@ -642,8 +642,9 @@ for (const ep of LIVE) {
         <p class="episode-lede">${esc(ep.description)}</p>
         <div class="hero-actions">
           <a class="btn-primary" href="${watchUrl}" target="_blank" rel="noopener">${icon('brand-youtube')}Watch on YouTube</a>
-          <a class="btn-ghost" href="${ep.spotifyUrl || SITE.links.spotify}" target="_blank" rel="noopener">${icon('brand-spotify')}Listen on Spotify</a>
+          <a class="btn-ghost" href="${SITE.links.youtubeSubscribe}" target="_blank" rel="noopener">${icon('player-play-filled')}Subscribe on YouTube</a>
         </div>
+        <div class="listen-row"><span>Prefer audio?</span><a href="${ep.spotifyUrl || SITE.links.spotify}" target="_blank" rel="noopener">${icon('brand-spotify')}Listen on Spotify</a><a href="${SITE.links.apple}" target="_blank" rel="noopener">${icon('brand-apple-podcast')}Apple Podcasts</a></div>
       </div>
       <div>
         ${PREVIEW
