@@ -217,7 +217,7 @@ function nav(L, current, { subscribeHref = '#subscribe' } = {}) {
 }
 
 function footer(L) {
-  const internal = NAV_ITEMS.map(([p, label]) => `<li><a href="${L.page(p)}">${label}</a></li>`).join('');
+  const internal = [...NAV_ITEMS, ['/privacy', 'Privacy']].map(([p, label]) => `<li><a href="${L.page(p)}">${label}</a></li>`).join('');
   const external = [
     ['youtube', 'YouTube'],
     ['instagram', 'Instagram'],
@@ -251,7 +251,8 @@ ${footer(L)}`;
 
 /* ---------- Signup form (one component, used everywhere) ---------- */
 let formCount = 0;
-function signup({ source, eyebrow, title, sub, id = 'subscribe', button = 'Subscribe' }) {
+function signup({ L, source, eyebrow, title, sub, id = 'subscribe', button = 'Subscribe' }) {
+  const privacyHref = L.page('/privacy');
   const n = ++formCount;
   const endpoint = PREVIEW ? 'mock:' : '/api/subscribe';
   return `
@@ -271,7 +272,7 @@ function signup({ source, eyebrow, title, sub, id = 'subscribe', button = 'Subsc
       <button class="btn-primary signup-btn" type="submit"><span class="spinner" aria-hidden="true"></span><span class="btn-label">${esc(button)}</span></button>
     </div>
     <p class="form-status" id="signup-status-${n}" role="status" aria-live="polite"></p>
-    <p class="signup-fine">No spam. Just new episodes and free resources. Unsubscribe anytime.</p>
+    <p class="signup-fine">No spam. Just new episodes and free resources. Unsubscribe anytime. <a href="${privacyHref}">Privacy</a></p>
   </form>
 </section>`;
 }
@@ -473,7 +474,7 @@ const pages = {}; // outPath -> html
     </div>
     <a class="btn-primary" href="${L.page('/episodes#unfiltered-perspectives')}">Unfiltered Perspectives ${icon('arrow-right')}</a>
   </section>
-  ${signup({ source: 'home', eyebrow: 'For the Insiders', title: "Don't miss<br>Season 3", sub: 'New episodes and free guides, straight to your inbox. Be the first to know when the next one drops.' })}`;
+  ${signup({ L, source: 'home', eyebrow: 'For the Insiders', title: "Don't miss<br>Season 3", sub: 'New episodes and free guides, straight to your inbox. Be the first to know when the next one drops.' })}`;
 
   pages['index.html'] = page(
     L,
@@ -582,7 +583,7 @@ const pages = {}; // outPath -> html
       <p class="unfiltered-note">I don't ask for your name or email. Only include them if you want to.</p>
     </form>
   </section>
-  ${signup({ source: 'episodes', eyebrow: 'For the Insiders', title: 'Never miss<br>an episode', sub: 'Get new episodes and free guides in your inbox the day they drop.' })}`;
+  ${signup({ L, source: 'episodes', eyebrow: 'For the Insiders', title: 'Never miss<br>an episode', sub: 'Get new episodes and free guides in your inbox the day they drop.' })}`;
 
   pages['episodes/index.html'] = page(
     L,
@@ -683,7 +684,7 @@ for (const ep of LIVE) {
     ${navCard(prev, 'prev')}
     ${navCard(next, 'next')}
   </nav>
-  ${signup({ source: `episode-${ep.number}`, eyebrow: 'For the Insiders', title: 'Get the next one<br>first', sub: 'New episodes and free guides, straight to your inbox.' })}`;
+  ${signup({ L, source: `episode-${ep.number}`, eyebrow: 'For the Insiders', title: 'Get the next one<br>first', sub: 'New episodes and free guides, straight to your inbox.' })}`;
 
   const ld = {
     '@context': 'https://schema.org',
@@ -742,7 +743,7 @@ for (const ep of LIVE) {
   ${block('books-title', 'Reading list', 'Books', books, (r) => resourceCard(L, r))}
   ${block('research-title', 'Referenced on the podcast', 'Research', research, (r) => resourceCard(L, r))}
   ${block('web-title', 'Explore further', 'Websites and tools', websites, (r) => resourceCard(L, r))}
-  ${signup({ source: 'resources', eyebrow: 'Free for Insiders', title: 'New guides,<br>in your inbox', sub: 'A new resource comes with every episode. Get them the day they drop.' })}`;
+  ${signup({ L, source: 'resources', eyebrow: 'Free for Insiders', title: 'New guides,<br>in your inbox', sub: 'A new resource comes with every episode. Get them the day they drop.' })}`;
 
   pages['resources.html'] = page(
     L,
@@ -797,7 +798,7 @@ for (const g of GUIDES) {
       ${side}
     </aside>
   </section>
-  ${signup({ source: `guide-${g.id}`, eyebrow: 'Free for Insiders', title: 'Want the next<br>guide?', sub: 'A new free guide comes with every episode. Get them in your inbox.' })}`;
+  ${signup({ L, source: `guide-${g.id}`, eyebrow: 'Free for Insiders', title: 'Want the next<br>guide?', sub: 'A new free guide comes with every episode. Get them in your inbox.' })}`;
 
   pages[`guides/${g.id}.html`] = page(
     L,
@@ -891,7 +892,7 @@ for (const g of GUIDES) {
       ${pillar('03', 'brain', 'Mental Health', 'Anxiety, depression, confidence, self-worth: the inner work, no filter. Lived experience meets real information, without pretending either one is the whole picture on its own.', ['Anxiety', 'Depression', 'Confidence', 'Self-worth'])}
     </ul>
   </section>
-  ${signup({ source: 'about', eyebrow: 'Season 3 is streaming', title: 'Ready to go<br>inside?', sub: 'Get new episodes and free guides in your inbox the day they drop.' })}`;
+  ${signup({ L, source: 'about', eyebrow: 'Season 3 is streaming', title: 'Ready to go<br>inside?', sub: 'Get new episodes and free guides in your inbox the day they drop.' })}`;
 
   pages['about.html'] = page(
     L,
@@ -903,6 +904,55 @@ for (const g of GUIDES) {
     '/about',
     body
   );
+}
+
+/* ---------- Privacy ---------- */
+{
+  const L = makeLinker(0);
+  const UPDATED = 'November 15, 2026';
+  const mail = SITE.contactEmail;
+  const body = `
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">The fine print, in plain words</div>
+    <h1>Privacy</h1>
+    <p>Last updated ${UPDATED}. Short version: I collect as little as possible, I don't sell anything about you, and this site doesn't track you.</p>
+  </div>
+  <section class="guide-body" aria-label="Privacy policy">
+    <div class="prose">
+      <div class="guide-section"><h2>If you sign up for emails</h2><div>
+        <p>I collect your email address so I can send you new episodes and free guides. It's stored with Kit, the email service I use. You can unsubscribe anytime with the link at the bottom of every email.</p>
+      </div></div>
+      <div class="guide-section"><h2>If you share an Unfiltered Perspective</h2><div>
+        <p>I get your message and the type you picked (a story, a question, a topic idea). I don't ask for your name or email, so only include them if you want to. Submissions are delivered through Formspree, a form service, which may keep basic technical details the way most web services do. I may use what you share to shape future episodes, without anything that identifies you.</p>
+      </div></div>
+      <div class="guide-section"><h2>When you visit the site</h2><div>
+        <ul>
+          <li><strong>No cookies, no analytics, no ads.</strong> This site doesn't track you or follow you around the internet.</li>
+          <li><strong>Hosting.</strong> The site runs on Vercel, which keeps basic technical logs (like your IP address and browser type) to keep the site secure and working.</li>
+          <li><strong>Videos.</strong> Episode videos only load from YouTube when you press play. Once you do, YouTube's privacy policy applies to that video.</li>
+          <li><strong>Links.</strong> Links to Spotify, YouTube, Instagram, book publishers and other sites follow those sites' own privacy policies.</li>
+        </ul>
+      </div></div>
+      <div class="guide-section"><h2>What I don't do</h2><div>
+        <p>I don't sell, rent, or trade your information. I only share it with the services above, and only so they can do their job.</p>
+      </div></div>
+      <div class="guide-section"><h2>Kids</h2><div>
+        <p>This site isn't meant for children under 13, and I don't knowingly collect their information.</p>
+      </div></div>
+      <div class="guide-section"><h2>Your choices</h2><div>
+        <p>Want your email removed, or have a question about your information? Email <a href="mailto:${mail}">${mail}</a> and I'll take care of it.</p>
+        <p>If this page changes, the date at the top will change with it.</p>
+      </div></div>
+    </div>
+    <aside class="side-stack" aria-label="Privacy summary">
+      <div class="side-card"><h2>At a glance</h2><ul class="link-list">
+        <li><span style="display:flex;gap:10px;padding:12px 0;font-size:14px;color:var(--text-soft);">${icon('mail')}<span>Email: only if you sign up<small>Stored with Kit</small></span></span></li>
+        <li><span style="display:flex;gap:10px;padding:12px 0;font-size:14px;color:var(--text-soft);">${icon('message-circle')}<span>Unfiltered: anonymous by default<small>Delivered by Formspree</small></span></span></li>
+        <li><span style="display:flex;gap:10px;padding:12px 0;font-size:14px;color:var(--text-soft);">${icon('heart-handshake')}<span>No cookies, tracking, or ads<small>Never sold or shared for profit</small></span></span></li>
+      </ul></div>
+    </aside>
+  </section>`;
+  pages['privacy.html'] = page(L, { title: 'Privacy', description: 'How The Inside Perspective handles your information: no cookies, no tracking, and your email only if you sign up.', path: '/privacy' }, '', body, { subscribeHref: L.page('/#subscribe') });
 }
 
 /* ---------- 404 ---------- */
@@ -943,7 +993,7 @@ if (!PREVIEW) {
   // Vercel runs `npm run build` on every push (see vercel.json), serves dist/,
   // and picks up the serverless function from the top level api/ folder.
 
-  const urls = ['/', '/episodes', '/resources', '/about', ...LIVE.map((e) => e.path), ...GUIDES.map((g) => g.path)];
+  const urls = ['/', '/episodes', '/resources', '/about', '/privacy', ...LIVE.map((e) => e.path), ...GUIDES.map((g) => g.path)];
   writeFileSync(
     join(OUT, 'sitemap.xml'),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls

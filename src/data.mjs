@@ -30,6 +30,8 @@ export const SITE = {
     apple: "https://podcasts.apple.com/us/podcast/the-inside-perspective/id1631885403",
     rss: "https://anchor.fm/s/926f3500/podcast/rss",
   },
+  // Shown on the privacy page for privacy questions and removal requests
+  contactEmail: "theinsideperspective1@gmail.com",
   // Formspree endpoint for the anonymous Unfiltered Perspectives form
   unfilteredEndpoint: "https://formspree.io/f/mgojrdrj",
 };

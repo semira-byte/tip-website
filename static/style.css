@@ -662,6 +662,7 @@ a.res-card:hover { border-color: #3a3a52; }
 .signup-btn { flex-shrink: 0; }
 
 .signup-fine { margin-top: 12px; font-size: 12px; color: var(--text-dim); text-align: center; }
+.signup-fine a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 2px; }
 
 .form-status { margin-top: 12px; font-size: 14px; line-height: 1.5; min-height: 1px; }
 .form-status:empty { margin-top: 0; }
